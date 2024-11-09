@@ -35,7 +35,13 @@ export function ColaboradorForm() {
 		}));
 	};
 
+	const existingCpfs = ["12345678900", "98765432100"]; // Trocar pelo CPF do banco de dados
+
 	const validateForm = () => {
+		if (existingCpfs.includes(cpf)) {  // verificar se o cpf está no array existingCpfs
+			alert("Você já enviou um form.");
+			return false;
+		}
 		if (!nomeCompleto.trim()) {
 			alert("Nome completo é obrigatório.");
 			return false;

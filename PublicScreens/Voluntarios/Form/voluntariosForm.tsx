@@ -32,7 +32,13 @@ export function VoluntariosForm() {
         }));
     };
 
+	const existingCpfs = ["12345678900", "98765432100"]; // Trocar pelo CPF do banco de dados
+
 	const validateForm = () => {
+		if (existingCpfs.includes(cpf)) {  // verificar se o cpf está no array existingCpfs
+			alert("Você já enviou um form.");
+			return false;
+		}
 		// Basic validation for required fields
 		if (
 			!nomeCompleto ||
